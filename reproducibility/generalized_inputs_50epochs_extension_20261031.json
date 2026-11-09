@@ -1,0 +1,105 @@
+{
+  "status": "both 50-epoch continuations running",
+  "recorded_at": "2026-10-31T04:18:18.802408+00:00",
+  "previous_target_epochs": 30,
+  "target_epochs": 50,
+  "source_commit": "9b83c5287ac40c98a1106c2d76b214eeaefff659",
+  "old_jobs": [
+    "851903",
+    "851905"
+  ],
+  "jobs": {
+    "scratch50-qutcc": "853217",
+    "scratch50-im2im": "853218"
+  },
+  "initialization": "continued original from-scratch training; no restart or clean pretrained weights",
+  "preserved": [
+    "model weights",
+    "Adam moments",
+    "augmentation RNG",
+    "quantile RNG",
+    "CPU and CUDA RNG",
+    "epoch and sample offset",
+    "global step",
+    "accumulated loss and condition counts",
+    "validation history"
+  ],
+  "schedule": "original nine-epoch warmup unchanged; cosine decay extended to epoch 50",
+  "checks_passed": 27,
+  "models": {
+    "qutcc": {
+      "handoff": {
+        "previous_epochs": 30,
+        "epochs": 50,
+        "next_epoch": 2,
+        "offset": 17472,
+        "global_step": 8868,
+        "initial_weights_sha256": "4c0b9af045d9d13d0c90a2146fd712bcf1d3ee70455a153984419cf0f472da7d",
+        "source_sha256": "27c0b1664914e69c8f0cac6712528531ec716428fc32e6ec5387ff1b73de0fc7"
+      },
+      "current_progress": {
+        "method": "qutcc",
+        "stage": "training",
+        "epoch": 2,
+        "epochs": 50,
+        "processed": 17700,
+        "total": 17999,
+        "global_step": 8925,
+        "loss": 0.028426179196685553,
+        "learning_rate": 2.9831111111111115e-05,
+        "condition_counts": {
+          "jpeg": 1743,
+          "exposure": 1760,
+          "fixed_pattern": 1733,
+          "poisson": 1753,
+          "poisson_gaussian": 1765,
+          "clean": 1707,
+          "dead_pixels": 1782,
+          "gaussian": 1782,
+          "gaussian_blur": 1838,
+          "resolution": 1837
+        },
+        "gpu": "NVIDIA RTX A6000"
+      },
+      "completed_epochs": 1,
+      "initial_weights_sha256": "4c0b9af045d9d13d0c90a2146fd712bcf1d3ee70455a153984419cf0f472da7d"
+    },
+    "im2im": {
+      "handoff": {
+        "previous_epochs": 30,
+        "epochs": 50,
+        "next_epoch": 3,
+        "offset": 476,
+        "global_step": 9119,
+        "initial_weights_sha256": "98aff5f906eec2d1cfb836d9edb4a6bd969b09481083a84a92e814c1320392e3",
+        "source_sha256": "27c0b1664914e69c8f0cac6712528531ec716428fc32e6ec5387ff1b73de0fc7"
+      },
+      "current_progress": {
+        "method": "im2im",
+        "stage": "training",
+        "epoch": 3,
+        "epochs": 50,
+        "processed": 500,
+        "total": 17999,
+        "global_step": 9125,
+        "loss": 0.03821834735572338,
+        "learning_rate": 3.0275555555555563e-05,
+        "condition_counts": {
+          "gaussian_blur": 50,
+          "jpeg": 52,
+          "exposure": 49,
+          "dead_pixels": 32,
+          "clean": 56,
+          "poisson_gaussian": 48,
+          "poisson": 40,
+          "fixed_pattern": 61,
+          "gaussian": 58,
+          "resolution": 54
+        },
+        "gpu": "NVIDIA RTX A6000"
+      },
+      "completed_epochs": 2,
+      "initial_weights_sha256": "98aff5f906eec2d1cfb836d9edb4a6bd969b09481083a84a92e814c1320392e3"
+    }
+  }
+}

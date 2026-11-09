@@ -1,0 +1,67 @@
+{
+  "source_commit": "e436579",
+  "jobs": {
+    "qutcc": {
+      "job": "972367",
+      "command": [
+        "/usr/local/slurm/current/bin/sbatch",
+        "--parsable",
+        "--job-name=gaussian-test-qutcc",
+        "--chdir=/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104",
+        "--output=/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/logs/%j.out",
+        "--error=/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/logs/%j.err",
+        "/home/jy2228/ConvRML/experiments/experiment4_generalized_20261101/source/experiments/experiment4_demo/run.sbatch",
+        "/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/evaluate.py",
+        "--method",
+        "qutcc",
+        "--comparison-source",
+        "/home/jy2228/ConvRML/experiments/experiment4_generalized_20261101/source",
+        "--training-root",
+        "/home/jy2228/ConvRML/experiments/raw_gaussian_specialists_50epochs_20261101",
+        "--manifest",
+        "/home/jy2228/ConvRML/experiments/dlmd_raw_adaptive_size_20261016/data/split.json",
+        "--output",
+        "/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/output/qutcc"
+      ]
+    },
+    "im2im": {
+      "job": "972368",
+      "command": [
+        "/usr/local/slurm/current/bin/sbatch",
+        "--parsable",
+        "--job-name=gaussian-test-im2im",
+        "--chdir=/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104",
+        "--output=/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/logs/%j.out",
+        "--error=/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/logs/%j.err",
+        "/home/jy2228/ConvRML/experiments/experiment4_generalized_20261101/source/experiments/experiment4_demo/run.sbatch",
+        "/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/evaluate.py",
+        "--method",
+        "im2im",
+        "--comparison-source",
+        "/home/jy2228/ConvRML/experiments/experiment4_generalized_20261101/source",
+        "--training-root",
+        "/home/jy2228/ConvRML/experiments/raw_gaussian_specialists_50epochs_20261101",
+        "--manifest",
+        "/home/jy2228/ConvRML/experiments/dlmd_raw_adaptive_size_20261016/data/split.json",
+        "--output",
+        "/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104/output/im2im"
+      ]
+    }
+  },
+  "evaluator_sha256": "dcd3a1f306c22a557641dc086ae69249d16b5fcb93776dab63d92c466a51e5bc",
+  "recorded_at": "2026-11-05T03:57:09.791132+00:00",
+  "status": "Submitted; both jobs pending GPU priority at launch verification",
+  "remote_root": "/home/jy2228/ConvRML/experiments/gaussian_specialists_calibration_test_20261104",
+  "checkpoint_epoch": 50,
+  "gaussian_sigma": 0.01,
+  "calibration_images": 3000,
+  "test_images": 2000,
+  "target_coverage": 0.9,
+  "calibration_procedure": "Demo empirical equal-tail quantile search for QUTCC; asymmetric empirical tail scales for Im2im; not RCPS",
+  "calibration_condition": "gaussian only",
+  "test_condition": "gaussian only",
+  "test_used_for_calibration": false,
+  "examples": 50,
+  "local_overlap_checks_passed": 2,
+  "remote_dependency_imports_passed": true
+}

@@ -1,0 +1,176 @@
+{
+  "recorded_at": "2026-11-05T01:32:40.617295+00:00",
+  "status": "Poisson QUTCC and Im2im passed GPU smoke checks and started full training; remaining 14 tasks queued",
+  "job": "970908",
+  "source_commit": "9de988df69e6978a8a0bf047ee53f0e5a9e49b7a",
+  "remote_root": "/home/jy2228/ConvRML/experiments/raw_other_specialists_50epochs_20261104_v2",
+  "epochs": 50,
+  "models_per_condition": [
+    "qutcc",
+    "im2im"
+  ],
+  "conditions": [
+    "poisson",
+    "poisson_gaussian",
+    "exposure",
+    "dead_pixels",
+    "fixed_pattern",
+    "gaussian_blur",
+    "resolution",
+    "jpeg"
+  ],
+  "max_parallel_gpus": 2,
+  "initialization": "From scratch using the exact original untrained epoch-zero states from the generalized comparison; fresh optimizer.",
+  "initial_root": "/home/jy2228/ConvRML/experiments/raw_online_scratch_30epochs_20261031_v2/results",
+  "manifest": "/home/jy2228/ConvRML/experiments/dlmd_raw_adaptive_size_20261016/data/split.json",
+  "manifest_sha256": "155670232c27b3201582f5a1b67fb4196e8123e40f388d9c951df4418f7144fb",
+  "train_pairs_per_epoch": 17999,
+  "effective_batch_size": 4,
+  "milestone_every_epochs": 10,
+  "recovery_checkpoint_every_epochs": 1,
+  "modification_sampling": "Selected condition for every input, independently per image and generated on demand.",
+  "parameters": {
+    "poisson": {
+      "peak_photons": 1330.0
+    },
+    "poisson_gaussian": {
+      "gaussian_sigma": 0.01,
+      "peak_photons": 1330.0
+    },
+    "exposure": {
+      "global_gains": [
+        0.5,
+        1.5
+      ],
+      "probabilities": [
+        0.5,
+        0.5
+      ]
+    },
+    "dead_pixels": {
+      "drop_rate": 0.1
+    },
+    "fixed_pattern": {
+      "gain_std": 0.01,
+      "offset_std": 0.003
+    },
+    "gaussian_blur": {
+      "sigma": 0.5,
+      "radius": 2
+    },
+    "resolution": {
+      "factor": 64
+    },
+    "jpeg": {
+      "quality": 50,
+      "subsampling": 0
+    }
+  },
+  "checks": {
+    "local_tests_passed": 16,
+    "remote_preflight_passed": true,
+    "models": {
+      "qutcc": {
+        "untrained": true,
+        "initial_weights_sha256": "4c0b9af045d9d13d0c90a2146fd712bcf1d3ee70455a153984419cf0f472da7d",
+        "strict_model_load_passed": true
+      },
+      "im2im": {
+        "untrained": true,
+        "initial_weights_sha256": "98aff5f906eec2d1cfb836d9edb4a6bd969b09481083a84a92e814c1320392e3",
+        "strict_model_load_passed": true
+      }
+    },
+    "first_pair_gpu_smoke_passed": true,
+    "gpu": "NVIDIA RTX 6000 Ada Generation"
+  },
+  "calibration_used": false,
+  "test_used": false,
+  "tasks": [
+    {
+      "index": 0,
+      "condition": "poisson",
+      "method": "qutcc"
+    },
+    {
+      "index": 1,
+      "condition": "poisson",
+      "method": "im2im"
+    },
+    {
+      "index": 2,
+      "condition": "poisson_gaussian",
+      "method": "qutcc"
+    },
+    {
+      "index": 3,
+      "condition": "poisson_gaussian",
+      "method": "im2im"
+    },
+    {
+      "index": 4,
+      "condition": "exposure",
+      "method": "qutcc"
+    },
+    {
+      "index": 5,
+      "condition": "exposure",
+      "method": "im2im"
+    },
+    {
+      "index": 6,
+      "condition": "dead_pixels",
+      "method": "qutcc"
+    },
+    {
+      "index": 7,
+      "condition": "dead_pixels",
+      "method": "im2im"
+    },
+    {
+      "index": 8,
+      "condition": "fixed_pattern",
+      "method": "qutcc"
+    },
+    {
+      "index": 9,
+      "condition": "fixed_pattern",
+      "method": "im2im"
+    },
+    {
+      "index": 10,
+      "condition": "gaussian_blur",
+      "method": "qutcc"
+    },
+    {
+      "index": 11,
+      "condition": "gaussian_blur",
+      "method": "im2im"
+    },
+    {
+      "index": 12,
+      "condition": "resolution",
+      "method": "qutcc"
+    },
+    {
+      "index": 13,
+      "condition": "resolution",
+      "method": "im2im"
+    },
+    {
+      "index": 14,
+      "condition": "jpeg",
+      "method": "qutcc"
+    },
+    {
+      "index": 15,
+      "condition": "jpeg",
+      "method": "im2im"
+    }
+  ],
+  "superseded_submission": {
+    "job": "970823",
+    "status": "Stopped after launcher source-path errors during startup; no full training started.",
+    "replacement": "970908"
+  }
+}

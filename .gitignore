@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv*/
+runs/
+outputs/
+*.pt
+*.pth
+*.npy
+*.npz
+*.h5
+*.log
+.DS_Store

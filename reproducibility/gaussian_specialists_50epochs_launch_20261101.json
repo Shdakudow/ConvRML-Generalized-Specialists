@@ -1,0 +1,103 @@
+{
+  "status": "both GPU smoke checks passed; full 50-epoch jobs running",
+  "recorded_at": "2026-11-01T17:26:06.395096+00:00",
+  "source_commit": "211184069053442b9841d7cf4138640dd034fd90",
+  "remote_root": "/home/jy2228/ConvRML/experiments/raw_gaussian_specialists_50epochs_20261101",
+  "epochs": 50,
+  "training_condition": "gaussian",
+  "sigma": 0.01,
+  "training_probability": 1.0,
+  "train_pairs": 17999,
+  "total_training_pairs": 899950,
+  "total_optimizer_steps": 225000,
+  "initialization": "from scratch using the exact original untrained epoch-zero states from the generalized comparison",
+  "jobs": {
+    "gaussian50-qutcc-smoke": "883519",
+    "gaussian50-qutcc": "883520",
+    "gaussian50-im2im-smoke": "883521",
+    "gaussian50-im2im": "883522"
+  },
+  "comparison": {
+    "generalized_root": "/home/jy2228/ConvRML/experiments/raw_online_scratch_30epochs_20261031_v2",
+    "epoch": 50,
+    "matched": [
+      "architecture",
+      "untrained initial weights",
+      "training scenes and order",
+      "effective batch",
+      "optimizer",
+      "learning-rate schedule",
+      "optimizer steps",
+      "fixed validation scenes and Gaussian draws"
+    ],
+    "difference": "Every specialist input is Gaussian-modified; generalized inputs are Gaussian approximately 10% of the time."
+  },
+  "milestone_every_epochs": 10,
+  "checks_passed": 77,
+  "calibration_used": false,
+  "test_used": false,
+  "models": {
+    "qutcc": {
+      "smoke_passed": true,
+      "initial_weights_sha256": "4c0b9af045d9d13d0c90a2146fd712bcf1d3ee70455a153984419cf0f472da7d",
+      "smoke_condition_counts": {
+        "gaussian": 32
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "estimated_epoch_hours": 0.47311615454594763,
+      "latest_progress": {
+        "method": "qutcc",
+        "stage": "training",
+        "epoch": 1,
+        "epochs": 50,
+        "processed": 500,
+        "total": 17999,
+        "global_step": 125,
+        "loss": 0.11061004269868135,
+        "learning_rate": 1.0275555555555556e-05,
+        "condition_counts": {
+          "gaussian": 500
+        },
+        "gpu": "NVIDIA RTX 6000 Ada Generation"
+      },
+      "generalized_epoch50_gaussian_validation": {
+        "count": 100,
+        "psnr": 23.253090744018554,
+        "ssim": 0.7163761729001998,
+        "mae": 0.03914094222709537
+      },
+      "generalized_gaussian_training_inputs_in_50_epochs": 90720
+    },
+    "im2im": {
+      "smoke_passed": true,
+      "initial_weights_sha256": "98aff5f906eec2d1cfb836d9edb4a6bd969b09481083a84a92e814c1320392e3",
+      "smoke_condition_counts": {
+        "gaussian": 32
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "estimated_epoch_hours": 0.436140060609591,
+      "latest_progress": {
+        "method": "im2im",
+        "stage": "training",
+        "epoch": 1,
+        "epochs": 50,
+        "processed": 600,
+        "total": 17999,
+        "global_step": 150,
+        "loss": 0.10020352341234684,
+        "learning_rate": 1.0331111111111112e-05,
+        "condition_counts": {
+          "gaussian": 600
+        },
+        "gpu": "NVIDIA RTX 6000 Ada Generation"
+      },
+      "generalized_epoch50_gaussian_validation": {
+        "count": 100,
+        "psnr": 23.410096015930176,
+        "ssim": 0.7182863342761994,
+        "mae": 0.039532209914177656
+      },
+      "generalized_gaussian_training_inputs_in_50_epochs": 90720
+    }
+  }
+}

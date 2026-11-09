@@ -1,0 +1,75 @@
+{
+  "status": "CANCELLED: user requires training from scratch",
+  "recorded_at": "2026-10-31T02:23:57.886388+00:00",
+  "training_complete": false,
+  "epochs": 30,
+  "models": [
+    "qutcc",
+    "im2im"
+  ],
+  "source_commit": "f229768a5b2f6d3c156f301bb1178b7f3894a147",
+  "remote_root": "/home/jy2228/ConvRML/experiments/raw_online_generalized_30epochs_20261031",
+  "jobs": {
+    "online30-qutcc-smoke": "851124",
+    "online30-qutcc": "851126",
+    "online30-im2im-smoke": "851127",
+    "online30-im2im": "851128"
+  },
+  "smoke": {
+    "qutcc": {
+      "passed": true,
+      "seconds_per_step": 0.4331895380413958,
+      "estimated_epoch_hours": 0.5540838068025926,
+      "estimated_30_epoch_hours": 16.622514204077778,
+      "condition_counts": {
+        "dead_pixels": 6,
+        "clean": 4,
+        "gaussian": 3,
+        "gaussian_blur": 3,
+        "poisson_gaussian": 1,
+        "exposure": 2,
+        "poisson": 6,
+        "fixed_pattern": 3,
+        "resolution": 2,
+        "jpeg": 2
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "peak_memory_gib": 4.496006965637207
+    },
+    "im2im": {
+      "passed": true,
+      "seconds_per_step": 0.5299134694172868,
+      "estimated_epoch_hours": 0.6768503763504135,
+      "estimated_30_epoch_hours": 20.3055112905124,
+      "condition_counts": {
+        "dead_pixels": 6,
+        "clean": 4,
+        "gaussian": 3,
+        "gaussian_blur": 3,
+        "poisson_gaussian": 1,
+        "exposure": 2,
+        "poisson": 6,
+        "fixed_pattern": 3,
+        "resolution": 2,
+        "jpeg": 2
+      },
+      "gpu": "NVIDIA RTX A6000",
+      "peak_memory_gib": 3.8819684982299805
+    }
+  },
+  "mixture": "10% clean; 10% each of nine input modification families; exposure share splits 5% gain .50 and 5% gain 1.50",
+  "train_pairs": 17999,
+  "validation": "fixed 100 validation scenes under all ten conditions per epoch",
+  "initialization": "clean epoch-50 weights; 30 additional fine-tuning epochs",
+  "optimizer": "fresh Adam, lr 1e-5, betas (.9,.99), effective batch 4, microbatch 1, float32",
+  "conditioning": "blind; modification label never supplied to model",
+  "modified_datasets_saved": false,
+  "test_used": false,
+  "calibration_used": false,
+  "cancelled_jobs": [
+    "851126",
+    "851128"
+  ],
+  "cancellation_reason": "Incorrect clean-checkpoint initialization; all replacement training must start from fresh random weights.",
+  "eligible_for_resume": false
+}

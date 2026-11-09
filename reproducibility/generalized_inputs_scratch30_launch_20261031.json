@@ -1,0 +1,116 @@
+{
+  "status": "Both smoke tests passed; scratch training started. Scheduler preempted QUTCC; checkpoint saved and job requeued. Im2im running.",
+  "recorded_at": "2026-10-31T02:54:30.190924+00:00",
+  "training_complete": false,
+  "epochs": 30,
+  "initialization": "fresh_random_no_pretrained_weights",
+  "pretrained": false,
+  "initial_trained_steps": 0,
+  "source_commit": "44f9debfbe481d5ccc40735a303076a9c2724ec4",
+  "remote_root": "/home/jy2228/ConvRML/experiments/raw_online_scratch_30epochs_20261031_v2",
+  "jobs": {
+    "scratch30-qutcc-smoke": "851902",
+    "scratch30-qutcc": "851903",
+    "scratch30-im2im-smoke": "851904",
+    "scratch30-im2im": "851905"
+  },
+  "cancelled_finetune_jobs": [
+    "851126",
+    "851128"
+  ],
+  "superseded_scratch_jobs": [
+    "851850",
+    "851852"
+  ],
+  "mixture": "10% clean and 10% for each of nine modification families; exposure splits equally between .50 and 1.50 global gain",
+  "train_pairs": 17999,
+  "validation": "same 100 held-out validation scenes under ten conditions each epoch",
+  "optimizer": "fresh Adam, betas (.9,.99), effective batch 4, microbatch 1, float32",
+  "schedule": "30% linear warmup from 1e-5 to 1e-4 then cosine decay toward 1e-9 over 30 epochs",
+  "initial_state_policy": "The smoke job saves fresh random epoch-0 weights before any optimizer steps. The full job verifies epoch=0, trained_steps=0, pretrained=False, method, protocol, source hash, seed, and full weight hash before initialization. Trained initialization files are rejected.",
+  "calibration_used": false,
+  "test_used": false,
+  "local_checks_passed": 25,
+  "smoke": {
+    "qutcc": {
+      "passed": true,
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "estimated_epoch_hours": 0.5520110893936825,
+      "condition_counts": {
+        "dead_pixels": 6,
+        "clean": 4,
+        "gaussian": 3,
+        "gaussian_blur": 3,
+        "poisson_gaussian": 1,
+        "exposure": 2,
+        "poisson": 6,
+        "fixed_pattern": 3,
+        "resolution": 2,
+        "jpeg": 2
+      },
+      "initial_weights_sha256": "4c0b9af045d9d13d0c90a2146fd712bcf1d3ee70455a153984419cf0f472da7d"
+    },
+    "im2im": {
+      "passed": true,
+      "gpu": "NVIDIA RTX A6000",
+      "estimated_epoch_hours": 0.7100015952850558,
+      "condition_counts": {
+        "dead_pixels": 6,
+        "clean": 4,
+        "gaussian": 3,
+        "gaussian_blur": 3,
+        "poisson_gaussian": 1,
+        "exposure": 2,
+        "poisson": 6,
+        "fixed_pattern": 3,
+        "resolution": 2,
+        "jpeg": 2
+      },
+      "initial_weights_sha256": "98aff5f906eec2d1cfb836d9edb4a6bd969b09481083a84a92e814c1320392e3"
+    }
+  },
+  "last_observed": {
+    "qutcc": {
+      "method": "qutcc",
+      "stage": "training",
+      "epoch": 1,
+      "epochs": 30,
+      "processed": 4,
+      "total": 17999,
+      "global_step": 1,
+      "loss": 0.1050501111894846,
+      "learning_rate": 1e-05,
+      "condition_counts": {
+        "dead_pixels": 1,
+        "clean": 1,
+        "gaussian": 1,
+        "gaussian_blur": 1
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation"
+    },
+    "im2im": {
+      "method": "im2im",
+      "stage": "training",
+      "epoch": 1,
+      "epochs": 30,
+      "processed": 100,
+      "total": 17999,
+      "global_step": 25,
+      "loss": 0.10458248853683472,
+      "learning_rate": 1.0053333333333334e-05,
+      "condition_counts": {
+        "dead_pixels": 16,
+        "clean": 5,
+        "gaussian": 9,
+        "gaussian_blur": 13,
+        "poisson_gaussian": 9,
+        "jpeg": 6,
+        "fixed_pattern": 11,
+        "poisson": 11,
+        "resolution": 11,
+        "exposure": 9
+      },
+      "gpu": "NVIDIA RTX A6000"
+    }
+  }
+}

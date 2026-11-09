@@ -1,0 +1,30 @@
+{
+  "protocol": "raw_online_ten_condition_from_scratch_20261031_v4_100epochs",
+  "epochs": 100,
+  "seed": 202610310,
+  "manifest_sha256": "155670232c27b3201582f5a1b67fb4196e8123e40f388d9c951df4418f7144fb",
+  "counts": {
+    "train": 17999,
+    "val": 2000,
+    "calibration": 3000,
+    "test": 2000
+  },
+  "condition_probability": 0.1,
+  "effective_batch": 4,
+  "microbatch": 1,
+  "initialization": "fresh_random_no_pretrained_weights",
+  "initial_lr": 1e-5,
+  "peak_lr": 0.0001,
+  "final_lr": 1e-9,
+  "warmup_fraction": 0.18,
+  "base_epochs": 50,
+  "continuation_initial_lr": 1e-5,
+  "continuation_final_lr": 1e-6,
+  "schedule": "preserve epochs 1-50 exactly; epochs 51-100 cosine from 1e-5 to 1e-6 with no warmup and preserved Adam state",
+  "optimizer": "Adam",
+  "betas": [0.9, 0.99],
+  "precision": "float32",
+  "validation_per_condition": 100,
+  "validation_seed": 202610319,
+  "milestone_every_epochs": 10
+}

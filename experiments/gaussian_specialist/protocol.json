@@ -1,0 +1,37 @@
+{
+  "protocol": "raw_online_gaussian_sigma001_scratch50_20261101_v1",
+  "epochs": 50,
+  "seed": 202610310,
+  "manifest_sha256": "155670232c27b3201582f5a1b67fb4196e8123e40f388d9c951df4418f7144fb",
+  "counts": {
+    "train": 17999,
+    "val": 2000,
+    "calibration": 3000,
+    "test": 2000
+  },
+  "effective_batch": 4,
+  "microbatch": 1,
+  "initialization": "fresh_random_no_pretrained_weights",
+  "initial_lr": 1e-5,
+  "peak_lr": 0.0001,
+  "final_lr": 1e-9,
+  "warmup_fraction": 0.18,
+  "schedule": "nine-epoch linear warmup from 1e-5 to 1e-4, then cosine decay to 1e-9 at epoch 50; matched to generalized epochs 1-50",
+  "optimizer": "Adam",
+  "betas": [0.9, 0.99],
+  "precision": "float32",
+  "validation_per_condition": 100,
+  "validation_seed": 202610319,
+  "milestone_every_epochs": 10,
+  "training_condition": "gaussian",
+  "gaussian_sigma": 0.01,
+  "training_distribution": {
+    "gaussian": 1.0
+  },
+  "matched_initial_weights_sha256": {
+    "qutcc": "4c0b9af045d9d13d0c90a2146fd712bcf1d3ee70455a153984419cf0f472da7d",
+    "im2im": "98aff5f906eec2d1cfb836d9edb4a6bd969b09481083a84a92e814c1320392e3"
+  },
+  "primary_validation_condition": "gaussian",
+  "comparison_epoch": 50
+}

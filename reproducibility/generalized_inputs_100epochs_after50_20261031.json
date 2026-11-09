@@ -1,0 +1,98 @@
+{
+  "status": "epochs 51-100 queued after successful completion of epoch 50; active jobs unchanged",
+  "recorded_at": "2026-10-31T21:34:43.207048+00:00",
+  "source_commit": "4d94a20ca7b46ba9c8221e1800df27a5edfce1ed",
+  "target_total_epochs": 100,
+  "phase1": {
+    "epochs": [
+      1,
+      50
+    ],
+    "jobs": {
+      "qutcc": "853217",
+      "im2im": "853218"
+    },
+    "schedule": "unchanged nine-epoch warmup and cosine to epoch 50"
+  },
+  "phase2": {
+    "epochs": [
+      51,
+      100
+    ],
+    "jobs": {
+      "qutcc": "869801",
+      "im2im": "869802"
+    },
+    "dependencies": {
+      "qutcc": "afterok:853217",
+      "im2im": "afterok:853218"
+    },
+    "initial_learning_rate": 1e-05,
+    "final_learning_rate": 1e-06,
+    "schedule": "cosine decay; no warmup; deliberately restart low-rate phase above near-zero phase-one endpoint",
+    "optimizer_reset": false
+  },
+  "initialization": "original from-scratch lineage; no clean pretrained weights introduced",
+  "preserved": [
+    "model weights",
+    "Adam state",
+    "augmentation and quantile RNG states",
+    "CPU/CUDA RNG states",
+    "sample offset",
+    "training history"
+  ],
+  "completion_guard": "Require successful completion marker, completed epoch 50, next epoch 51, zero offset, global step 225000, and validation history for epochs 1-50",
+  "checks_passed": 30,
+  "training_complete": false,
+  "queue_at_verification": "869802|scratch100-im2im|PENDING|0:00|(Dependency)\n869801|scratch100-qutcc|PENDING|0:00|(Dependency)\n853218|scratch50-im2im|RUNNING|45:35|yosemite\n853217|scratch50-qutcc|RUNNING|2:31:30|abdelfattah-compute-03",
+  "current_progress": {
+    "qutcc": {
+      "method": "qutcc",
+      "stage": "training",
+      "epoch": 28,
+      "epochs": 50,
+      "processed": 7000,
+      "total": 17999,
+      "global_step": 123250,
+      "loss": 0.010103999520651996,
+      "learning_rate": 5.805414339264778e-05,
+      "condition_counts": {
+        "fixed_pattern": 676,
+        "poisson_gaussian": 761,
+        "dead_pixels": 739,
+        "resolution": 676,
+        "jpeg": 697,
+        "poisson": 703,
+        "gaussian_blur": 704,
+        "gaussian": 676,
+        "clean": 693,
+        "exposure": 675
+      },
+      "gpu": "NVIDIA RTX A6000"
+    },
+    "im2im": {
+      "method": "im2im",
+      "stage": "training",
+      "epoch": 36,
+      "epochs": 50,
+      "processed": 1200,
+      "total": 17999,
+      "global_step": 157800,
+      "loss": 0.009297018754296005,
+      "learning_rate": 2.9315251739281672e-05,
+      "condition_counts": {
+        "poisson": 126,
+        "exposure": 107,
+        "clean": 121,
+        "fixed_pattern": 139,
+        "gaussian_blur": 109,
+        "gaussian": 119,
+        "jpeg": 125,
+        "poisson_gaussian": 125,
+        "resolution": 103,
+        "dead_pixels": 126
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation"
+    }
+  }
+}
